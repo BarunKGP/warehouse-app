@@ -1,5 +1,5 @@
 # demo-spring-app
-This inventory management application is inspired by traditional ecommerce sites like Amazon and hence is built from both the consumer and supplier sides, so that both of them may use the same application. This application has been created to be RESTful and follows the Spring MVC model. I started off using a persisted H2 database in the localhost but now I have migrated to a PostGreSQL database instead. This makes the application more production-ready and compliant with enterprise-grade standards. I have used Hibernate as the ORM in this application.
+This inventory management application is inspired by traditional ecommerce sites like Amazon and hence is built from both the consumer and supplier sides, so that both of them may use the same application. This application has been created to be RESTful and follows the Spring MVC model. I started off using a persisted H2 database in the localhost but now I have migrated to a PostgreSQL database instead. This makes the application more production-ready and compliant with enterprise-grade standards. I have used Hibernate as the ORM in this application.
 
 ## Prerequisites
 
