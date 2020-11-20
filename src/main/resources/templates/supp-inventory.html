@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Success!</title>
+</head>
+<body>
+    <div th:if="${success_supp}">
+        <h2 class="alert" >Your supplier profile has been created
+            <span th:text="${supplier?.firstname}">Firstname</span>!
+        </h2>
+    </div>
+    <!-- <h2 class = "alert" th:text = "${success_supp}" th:if = "${success_supp}"></h2><br/> -->
+    <!-- <h2 class = "alert" th:text = "${success_supp_mat_add}" th:if = "${success_supp_mat_add}"></h2><br/> -->
+    <h3>What do you want to do next?</h3><br/>
+    <!-- <a th:href="@{/supplier/{id}/showdashboard(id=${suppliers.id})}">Please login to view your Supplier Dashboard</a> -->
+    <a href="/">Return to home page</a>    
+</body>    
+</html>

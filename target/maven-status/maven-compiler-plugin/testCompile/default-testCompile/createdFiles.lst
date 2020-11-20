@@ -1,0 +1,4 @@
+com\warehouse\demo\demospringapp\DemoSpringAppApplicationTests.class
+com\warehouse\demo\demospringapp\services\CustomerServiceUnitTest.class
+com\warehouse\demo\demospringapp\services\SupplierServiceUnitTest.class
+com\warehouse\demo\demospringapp\controllers\MaterialsControllerIntegrationTest.class

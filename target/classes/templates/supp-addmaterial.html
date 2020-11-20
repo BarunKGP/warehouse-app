@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Material</title>
+</head>
+<body>
+    <h1>Add a new Material to your Inventory</h1>
+    <form th:action="@{/supplier/{s_id}/addmaterial(s_id=${suppliers.id})}" th:object="${suppMat}" method="POST">
+        <label for="name">Material Name: </label>
+        <input type="text" th:field="*{name}" id="name"/><br/>
+        <label for="details">Material Details: </label>
+        <input type="text" th:field="*{details}" id="details"/><br/>
+        <label for="units">Stock Units: </label>
+        <input type="text" th:field="*{units}" id="units"><br/>
+        <input type="submit" value="Add Material"/>     
+    </form>
+</body>
+</html>

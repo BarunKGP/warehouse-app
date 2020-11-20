@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoSpringAppApplication<demo-spring-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.warehouse.demo.demospringapp.DemoSpringAppApplication",
+            "projectName": "demo-spring-app",
+            "args": ""
+        }
+    ]
+}

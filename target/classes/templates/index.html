@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Demo App</title>
+        <link rel="stylesheet" th:href="@{/css/site.css}" type="text/css" />
+    </head>
+    <body>
+        <h1>Welcome to the Demo Application!</h1>
+        <a th:href="@{/materials/}">Materials List</a><br/>
+        <a th:href="@{/materials/search}">Search for a Material</a><br/>
+        <div class="auth">
+            <div class="pre-auth">
+                <div sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/signup}">New User? Sign Up here!</a><br/>
+                    <a th:href="@{/login}">Existing User? Log in</a><br/>
+                </div> 
+            </div>           
+            <div sec:authorize="isAuthenticated()">
+                <div class="auth-role">
+                    <p>You are logged in as
+                        <span sec:authentication="principal.authorities"></span>
+                    </p>
+                </div>
+                <div class="post-auth">
+                    <div sec:authorize="hasRole('SUPPLIER')">
+                        <a th:href="@{'/supplier/' + ${#authentication.principal.id} + '/dashboard'}">View Dashboard</a>
+                        <br/> 
+                    </div>
+                    <div sec:authorize="hasRole('CUSTOMER')">
+                        <a th:href="@{'/customer/' + ${#authentication.principal.id}}">View your profile</a><br/>
+                    </div>
+                </div>
+                <a th:href="@{/logout}" class="auth-role logout-alert">Logout</a><br/>
+            </div>
+        </div>
+    </body>
+</html>

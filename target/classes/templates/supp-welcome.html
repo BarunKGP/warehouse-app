@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Success!</title>
+    <link type="text/css" href="css/site.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1 th:if="${success_supp}">
+        Your Supplier profile has been successfully created 
+            <span th:text="${supp_success.firstname}">Firstname</span>!
+        </h1>
+    </div>
+    <div class="login-instruct">
+        <p>Please 
+        <a th:href="@{/loginSupplier}">log in</a>
+        with your Supplier credentials to continue</p><br/>
+    </div>
+    <a href="/">Return to home page</a>
+</body>    
+</html>

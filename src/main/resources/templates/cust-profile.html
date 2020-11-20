@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome
+        <span th:text="${customers.firstname}">First name</span>
+    </h1>
+    <div>
+        <a th:href="@{/customer/{id}/details(id = ${customers.id})}">View profile details</a><br/>
+        <!-- <a th:href="@{/customer/{id}/cart(id = ${customers.id})}">View cart</a><br/> -->
+        
+    </div>
+    <div class="logout">
+        <a th:href="@{/logout}">Logout</a><br/>
+    </div>
+</body>
+</html>

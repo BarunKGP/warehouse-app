@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Found Materials</title>
+</head>
+
+<body>
+    <!-- <div th:if="${not #lists.isEmpty(foundMaterials)}"> -->
+        <h1>Search Result:</h1>    
+        <table>
+            <tr>
+                <th>Material ID</th>
+                <th>Material Name</th>
+                <th>Material Details</th>
+                <!-- <th>Stock Units</th> -->
+            </tr>
+            <tr th:each="material:${foundMaterials}">
+                <td th:text="${material.id}"></td>
+                <td th:text="${material.name}"></td>
+                <td th:text="${material.details}"></td>
+                <!-- <td th:text="${material.units}"></td> -->
+            </tr>
+        </table>
+    <!-- </div> -->
+    <br/>
+
+    <!-- Buy functionality -->
+    <!-- <div sec:authorize="hasRole('CUSTOMER')">
+        <button onclick="unhide()">Create buy order</button>
+        <div id="buyOrder" hidden>
+            <form th:action="@{/customer/{id}/buy(id = ${#authentication.principal.id})}" th:object="${order}" method="POST">
+                <layout for="matId">Material ID: </layout>
+                <input type="number" th:field="*{matId}" id="matId" th:name="matId"/><br/>
+                <layout for="units">Units to buy</layout>
+                <input type="number" th:field="*{units}" id="units" th:name="units"/><br/>
+                <input type="submit" value="Add to cart"/><br/>
+            </form>
+        </div>
+    </div> -->
+
+    <!-- JavaScript function to hide/unhide buy order div -->
+    <script>
+        function unhide() {
+            var x = document.getElementById("buyOrder");
+            if(x.style.display === "none"){
+                x.style.display = "block";
+            }
+            else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+    
+</body>
+
+</html>

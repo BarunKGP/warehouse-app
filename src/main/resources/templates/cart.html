@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1>
+        <span th:text="${customers.firstname}">First name</span>'s cart
+    </h1>
+    <div>
+        <h2 th:if="${#lists.isEmpty(activeOrders)}">Your cart is empty :(</h2>
+        <h2 th:unless="${#lists.isEmpty(activeOrders)}">Your cart contains:</h2>
+        <div th:unless="${#lists.isEmpty(activeOrders)}">
+            <table>
+                <tr>
+                    <th>Serial number</th>
+                    <th>Material ID</th>
+                    <!-- <th>Material Name</th> -->
+                    <th>Units Ordered</th>
+                </tr>
+                <tr th:each="order, stat : ${activeOrders}">
+                    <td th:text="${stat.count}"></td>
+                    <td th:text="${order.matId}"></td>
+                    <!-- <td th:text="${materialMap.get(${order.matId})}"></td> -->
+                    <td th:text="${order.units}"></td>
+                </tr>
+            </table>
+            <form title="Checkout Items:" th:action="@{/customer/{id}/checkout(id=${customers.id})}"
+            method="GET" th:object="${cart}">
+                <layout for="matIds">Choose payment method:</layout><br/>
+                <input type="radio" th:field="*{paymentMethod}" id="cash" value="Cash">
+                <label for="cash">Cash</label><br/>
+                <input type="radio" th:field="*{paymentMethod}" id="card" value="Card">
+                <label for="card">Credit/Debit Card</label><br/>
+                <input type="radio" th:field="*{paymentMethod}" id="upi" value="UPI">
+                <label for="upi">UPI</label><br/>
+                <input type="radio" th:field="*{paymentMethod}" id="net" value="Netbanking">
+                <label for="net">Netbanking</label><br/>
+                <input type="submit" value="Check out"><br/>
+            </form>
+        </div>
+    </div>
+    <div class="logout">
+        <a th:href="@{/logout}">Logout</a><br/>
+    </div>
+</body>
+</html>

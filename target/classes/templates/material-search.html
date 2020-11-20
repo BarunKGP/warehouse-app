@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search for a Material</title>
+</head>
+
+<body>
+    <h1>Enter the name of the material</h1>
+    <form th:action="@{/materials/search}" th:object="${materialsearch}" method="POST">
+        <input type="text" placeholder="Search..." th:field="*{name}" th:name="name"/><br/>
+        <input type="submit" value="Search"/><br/>        
+    </form>
+</body>
+</html>

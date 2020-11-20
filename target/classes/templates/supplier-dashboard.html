@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to your Dashboard</title>
+</head>
+<body>
+    <h1>Welcome
+        <span th:text="${suppliers.firstname}">Firstname</span>
+    </h1>
+    <!-- <h2>This is still being built. Coming soon!</h2>     -->
+    <a th:href="@{/supplier/{id}/showmaterials(id=${suppliers.id})}">View Inventory</a><br/>
+    <a th:href="@{/supplier/{id}/materialaddform(id=${suppliers.id})}">Add a new Material</a><br/>
+    <a th:href="@{/supplier/{id}/details(id=${suppliers.id})}">View Details</a><br/>
+    <a th:href="@{/}">Home</a><br/>
+    <a th:href="@{/logout}">Logout</a><br/>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Order Success</title>
+</head>
+<body>
+    <h1>Added to cart!</h1>
+    <a th:href="@{/customer/{id}/cart(id=${customers.id})}">Go to cart</a><br/>
+    <a th:href="@{/materials/}">Continue shopping</a><br/>
+    <a th:href="@{/}">Home</a><br/>
+    <a th:href="@{/logout}">Logout</a><br/>
+</body>
+</html>

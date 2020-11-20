@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Success!</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/site.css}" href="css/site.css"/>
+</head>
+<body>
+    <h1 th:if="${success_cust}">
+        <p>Your Customer profile has been successfully created
+            <span th:text="${cust_success.firstname}">firstname</span>!
+        </p>
+        
+    </h1>
+    <div class="login-instruct">
+        <p>Please
+        <a th:href="@{/loginCustomer}">log in</a>
+          with your Customer credentials to continue</p><br/>
+    </div>
+    <a href="/">Return to home page</a>
+</body>    
+</html>

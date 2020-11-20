@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Materials List</title>        
+    </head>
+
+    <body>
+        <h1>Materials List</h1>
+        <br/>
+        <table>
+            <tr>
+                <th>Material ID</th>
+                <th>Material Name</th>
+                <th>Material Details</th>
+                <!-- <th>Supplier Name</th> -->
+                <th>Units available</th>
+            </tr>
+            <tr th:each="material:${materialall}">
+                <td th:text="${material.id}"></td>
+                <td th:text="${material.name}"></td>
+                <td th:text="${material.details}"></td>
+                <!-- <td th:text="${material.suppList.firstname} + ' ' + ${material.suppList.lastname}"></td> -->
+                <td th:text="${material.units}"></td>
+            </tr>
+        </table>
+        <br/>
+
+        <!-- Buy functionality -->
+        <div sec:authorize="hasRole('CUSTOMER')">
+            <button onclick="unhide()">Create buy order</button>
+            <div id="buyOrder" hidden>
+                <form th:action="@{/customer/{id}/buy(id = ${#authentication.principal.id})}" th:object="${order}" method="POST">
+                    <layout for="matId">Material ID: </layout>
+                    <input type="number" th:field="*{matId}" id="matId" th:name="matId"/><br/>
+                    <layout for="units">Units to buy</layout>
+                    <input type="number" th:field="*{units}" id="units" th:name="units"/><br/>
+                    <input type="submit" value="Add to cart"/><br/>
+                </form>
+            </div>
+        </div>
+
+        <!-- JavaScript function to hide/unhide buy order div -->
+        <script>
+            function unhide() {
+                var x = document.getElementById("buyOrder");
+                if(x.style.display === "none"){
+                    x.style.display = "block";
+                }
+                else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        
+    </body>
+
+</html>
