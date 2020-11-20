@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sign up!</h1>    
+        <form th:action="@{/signup}" th:object="${user}" method="POST">
+            <label for="fname">First Name: </label>
+            <input type="text" th:field="*{firstname}" id="fname" required /><br/>
+            <label for="lname">Last Name: </label>
+            <input type="text" th:field="*{lastname}" id="lname" required /><br/>
+            <label for="email">Email id: </label>
+            <input type="text" th:field="*{email}" id="email" placeholder="Enter your email id" required /><br/>
+            <label for="password">Enter a password</label>
+            <input type="password" th:field="*{password}" id="password" required /><br/>
+            <div class="form-user-type">
+                <label for="usertype">Select account type: </label>
+                <select class="form-control" id="usertype" th:field="*{type}">
+                    <option th:each="type : ${T( com.warehouse.demo.demospringapp.domains.User_Type).values()}"
+                    th:value="${type}" th:text="${type}"></option>
+                </select>
+            </div>
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
+</body>
+</html>

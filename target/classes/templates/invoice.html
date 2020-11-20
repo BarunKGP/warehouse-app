@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Invoice</title>
+</head>
+<body>
+    <h1>Invoice id #
+        <span th:text="${invoice.id}">id</span>
+    </h1>
+    <p>Time of purchase: <span th:text="${invoice.timestamp}"></span></p>
+    <table>
+        <tr>
+            <th>Material ID</th>
+            <th>Units bought</th>
+        </tr>
+        <tr th:each="order : ${invoice.orders}"> 
+            <td th:text="${order.matId}"></td>
+            <td th:text="${order.units}"></td>
+        </tr>
+    </table>
+
+    <p>Thank you for shopping with us!</p>
+    <div class="parent-control">
+        <a class = "redirect-links" th:href="@{/}">Home</a><br/>
+        <a class = "redirect-links" th:href="@{/logout}">Logout</a><br/>
+    </div>
+    
+    <style type="text/css">
+        .parent-control{
+            background-color: rgb(15, 119, 70);
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+            height: 1.2cm;
+        }
+            
+        .redirect-links{
+            font-size: small;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(240, 245, 242);
+        }
+    </style>
+</body>
+</html>
